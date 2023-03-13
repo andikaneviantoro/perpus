@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Andika | Dashboard')
+@section('title', 'Andika | Dashboard Admin')
 @section('content')
 <!-- PAGE CONTENT-->
 <div class="page-content--bgf7">
@@ -44,7 +44,18 @@
                                     <td style="text-align: center; vertical-align: middle;">{{ $crud->pengarang }}</td>
                                     <td style="text-align: center; vertical-align: middle;">{{ $crud->penerbit}}</td>
                                     <td>
-                                        <div class="table-data-feature"></div>
+                                        <div class="table-data-feature">
+                                            @if(Auth::user()->role == 'admin')
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <a class="zmdi zmdi-edit" href="{{ route('cruds.edit', $crud->id)}}"></a>
+                                            </button>
+                                            @endif
+                                            @if(Auth::user()->role == 'admin')
+                                            <button href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                <a class="zmdi zmdi-delete" href="{{ route('cruds.destroy', $crud->id)}}"></a>
+                                            </button>
+                                            @endif
+                                        </div>
                                     </td>
                                     <tr class="spacer"></tr>
                                 </tr>
