@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Andika | Dashboard Admin')
+@section('title', 'Andika | Dashboard Users')
 @section('content')
 <!-- PAGE CONTENT-->
 <div class="page-content--bgf7">
